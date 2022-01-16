@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Present Perfect Quiz</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            max-width: 50%;
+            margin: 150px;
+            font-size: large;
+        }
+        form {
+            margin-left: 50px;
+            padding: 20px;
+            border: 2px solid black;
+        }
+
+        label{ display: block; }
+
+        input[type=submit]{ 
+            margin-top: 20px; 
+            width: 50%;
+            
+        }
+
+        img {
+            width: 20px;
+            height: 20px;
+        }
+
+        #up {
+            text-align: center;
+            margin-left: 50px;
+            width: 50%;
+
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Present Perfect Quiz</h1>
+    <h1>Score: <span id="score"></span></h1>
+    <hr>
+    <br><br>
+
+    <form>
+        <div class="question">
+            <p><strong>Q1</strong>: Lindsay _____ not been to France.</p>
+            <label>
+                <input type="radio" name="one" value="a">has</label><br>
+            <label>
+                <input type="radio" name="one" value="b">is</label><br>
+            <label>
+                <input type="radio" name="one" value="c">have</label><br>
+        </div>
+
+        <div class="question">
+            <p><strong>Q2</strong>:  _____ you finished your homework?</p>
+            <label>
+                <input type="radio" name="two" value="a">have</label><br>
+            <label>
+                <input type="radio" name="two" value="b">has</label><br>
+            <label>
+                <input type="radio" name="two" value="c">his</label><br>
+        </div>
+        
+        <div class="question">
+            <p><strong>Q3</strong>: They___ gone to a rock concert.</p>
+            <label>
+                <input type="radio" name="three" value="a">'s</label><br>
+            <label>
+                <input type="radio" name="three" value="b">'es</label><br>
+            <label>
+                <input type="radio" name="three" value="c">'ve</label><br>
+        </div>
+
+        <div class="question">
+            <p><strong>Q4</strong>: _____ you been to Japan?</p>
+            <label>
+                <input type="radio" name="four" value="a">Is</label><br>
+            <label>
+                <input type="radio" name="four" value="b">Have</label><br>
+            <label>
+                <input type="radio" name="four" value="c">Has</label><br>
+        </div>
+
+        <div class="question">
+            <p><strong>Q5</strong>: We _____ never eaten Mexican food.</p>
+            <label>
+                <input type="radio" name="five" value="a">have</label><br>
+            <label>
+                <input type="radio" name="five" value="b">has</label><br>
+            <label>
+                <input type="radio" name="five" value="c">are</label><br>
+        </div>
+
+        <div class="question">
+            <p><strong>Q6</strong>: Andrea has _____ her umbrella.</p>
+            <label>
+                <input type="radio" name="six" value="a">forget</label><br>
+            <label>
+                <input type="radio" name="six" value="b">forgetting</label><br>
+            <label>
+                <input type="radio" name="six" value="c">forgotten</label><br>
+        </div>
+
+        <div class="question">
+            <p><strong>Q7</strong>: _____ the sun come up?</p>
+            <label>
+                <input type="radio" name="seven" value="a">Was</label><br>
+            <label>
+                <input type="radio" name="seven" value="b">Have</label><br>
+            <label>
+                <input type="radio" name="seven" value="c">Has</label><br>
+        </div>
+
+        <div class="question">
+            <p><strong>Q8</strong>: The children ________ the lost puppy.</p>
+            <label>
+                <input type="radio" name="eight" value="a">have find</label><br>
+            <label>
+                <input type="radio" name="eight" value="b">is finding</label><br>
+            <label>
+                <input type="radio" name="eight" value="c">have found</label><br>
+        </div>
+
+        <div class="question">
+            <p><strong>Q9</strong>: Wiwi's been a vegetarian _____ three years.</p>
+            <label>
+                <input type="radio" name="nine" value="a">since</label><br>
+            <label>
+                <input type="radio" name="nine" value="b">for</label><br>
+            <label>
+                <input type="radio" name="nine" value="c">after</label><br>
+        </div>
+
+        <div class="question">
+            <p><strong>Q10</strong>: I haven't worked _____ last December.</p>
+            <label>
+                <input type="radio" name="ten" value="a">since</label><br>
+            <label>
+                <input type="radio" name="ten" value="b">for</label><br>
+            <label>
+                <input type="radio" name="ten" value="c">by</label><br>
+        </div>
+
+        <input type="submit" />
+    </form>
+    <br>
+        <div>
+            <button id="up">GO UP</button>
+        </div>
+        
+    
+
+    <script>
+        var answers = {
+            "one" : "a",
+            "two" : "a",
+            "three" : "c",
+            "four" : "b",
+            "five" : "a",
+            "six" : "c",
+            "seven" : "c",
+            "eight" : "c",
+            "nine" : "a",
+            "ten" : "a",
+        }
+
+        $('#up').click(function() {
+            $(window).scrollTop(0)
+        })
+
+        function correct(el) {
+            var img = new Image();
+            img.src = 'https://image.similarpng.com/very-thumbnail/2020/11/Correct-icon-button-on-transparent-background-PNG.png';
+            el.append(img);
+        }
+
+        function incorrect(el) {
+            var img = new Image();
+            img.src = 'https://image.similarpng.com/very-thumbnail/2020/11/Red-incorrect-icon-design-on-transparent-background-PNG.png';
+            el.append(img);
+        }
+
+        $('form').submit(function(e){
+            e.preventDefault();
+            clearAnswers();
+
+            var numberOfChecked = $('input:checked').length;
+            console.log('number of checked: ' + numberOfChecked)
+            var count = 0;
+           
+            $questions = $(".question");
+            $questions.each(function(){
+                var answer = $(this).find("input:checked"),
+                    key = answer.attr("name"),
+                    val = answer.attr("value");
+
+                if(answer.length === 0){
+                incorrect($(this).find("p"));
+                } else if (answers[key] !== val){
+                incorrect($(this).find("p"));
+                } else {
+                correct(answer.parent());
+                count++;
+                }
+            });
+
+            $('#score').text(count)
+        })
+
+        function clearAnswers(){
+        $("img").each(function(){
+            $(this).remove();
+        })
+}
+
+    </script>
+    
+</body>
+</html>
